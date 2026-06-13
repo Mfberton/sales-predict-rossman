@@ -4,16 +4,16 @@
 <img src="img/rossmann_logo.png" />
 </div>
 
-# Introdução 
+# Introdução
 Esse é um projeto end-to-end de Data Science com modelo de regressão adaptada para séries temporais. No qual criamos 4 tipos de modelos para predizer o valor das vendas das lojas nas próximas 6 semanas. As previsões podem ser acessadas pelo usuário por meio de um BOT no aplicativo do Telegram.
 
-Este repositório contém a solução para a resolução de uma problema do Kaggle: https://www.kaggle.com/c/rossmann-store-sales 
+Este repositório contém a solução para a resolução de uma problema do Kaggle: https://www.kaggle.com/c/rossmann-store-sales
 
 Esse projeto faz parte da "Comunidade DS", que é um ambiente de estudo que promove o aprendizado, execução, e discussão de projetos de Data Science.
 
 ### Plano de Desenvolvimento do Projeto de Data Science
 Esse projeto foi desenvolvido seguindo o método CRISP-DS(Cross-Industry Standard Process - Data Science). Essa é uma metodologia capaz de transformar os dados da empresa em conhecimento e informações que auxiliam na tomada de decisão. A metodologia CRISP-DM define o ciclo de vida do projeto, dividindo-as nas seguintes etapas:
-* Entendimento do Problema de Negócio 
+* Entendimento do Problema de Negócio
 * Coleção dos Dados
 * Limpeza de Dados
 * Análise Exploratória dos Dados
@@ -41,10 +41,10 @@ Esse projeto foi desenvolvido seguindo o método CRISP-DS(Cross-Industry Standar
 # 1. Descrição e Problema de Negócio
 
 ### 1.1 Descrição
-**Rossman Sales Drugstore** é uma empresa que opera mais de 3000 drogarias em 7 países europeus. Atualmente os gerentes da loja Rossman têm a tarefa de prever suas vendas diárias com até seis semanas de antecedência. As vendas das lojas são influenciadas por muitos fatores, incluindo promoções, competição, feriados escolares e estaduais, sazonalidade e localidade. Atualmente essa previsão é feita por meio de uma simples média das vendas de cada loja. 
+**Rossman Sales Drugstore** é uma empresa que opera mais de 3000 drogarias em 7 países europeus. Atualmente os gerentes da loja Rossman têm a tarefa de prever suas vendas diárias com até seis semanas de antecedência. As vendas das lojas são influenciadas por muitos fatores, incluindo promoções, competição, feriados escolares e estaduais, sazonalidade e localidade. Atualmente essa previsão é feita por meio de uma simples média das vendas de cada loja.
 
 ### 1.2 Problema de Negócio
-Foi feita uma reunião entre o CEO e os sócios da Rossman e foi definido que a empresa irá investir nas reformas das lojas da rede Rossman. Para que essa reforma seja possível será necessário prever o valor de vendas de cada loja de maneira mais assertiva, para que assim o CEO tenha uma melhor noção do quanto investir em cada loja. 
+Foi feita uma reunião entre o CEO e os sócios da Rossman e foi definido que a empresa irá investir nas reformas das lojas da rede Rossman. Para que essa reforma seja possível será necessário prever o valor de vendas de cada loja de maneira mais assertiva, para que assim o CEO tenha uma melhor noção do quanto investir em cada loja.
 
 Dito isso,a empresa decidiu contratar um Cientista de Dados para realizar as seguintes tarefas:
 
@@ -89,7 +89,7 @@ Na featuring engineering foi derivado novos atributos(colunas) baseados nas vari
 ### Passo 03. Filtragem de Variáveis
 O conjunto de dados foi filtrado por linhas para que levássemos em consideração apenas as lojas que estão abertas e que realizaram vendas ( open != 0 e sales > 0) e por coluna foi feita um drop das variáveis que não agregam valor de conhecimento ou foram derivados para outras variáveis.
 ### Passo 04. Análise Exploratória dos Dados (EDA)
-Exploração dos Dados com objetivo de encontrar Insights para o melhor entendimento do Negócio. 
+Exploração dos Dados com objetivo de encontrar Insights para o melhor entendimento do Negócio.
 Foram feitas também análises univariadas, bivariadas e multivariadas, obtendo algumas propriedades estatísticas que as descrevem, e mais importante  a correlação entre as variáveis.
 ### Passo 05. Preparação dos Dados
 Sessão que trata da preparação dos dados para que os algoritmos de Machine Learning possam ser aplicados. Foram realizados alguns tipos de escala e encoding para que as variáveis categóricas se tornassem numéricas.
@@ -101,13 +101,13 @@ Realização do treinamento dos modelos de Machine Learning . O modelo que apres
 Foi encontrado os melhores parâmetros que maximizavam o aprendizado do modelo. Esses parâmetros foram definidos com base no método de RandomSearch.
 ### Passo 09. Conversão do Desempenho do Modelo em Valor de Negócio
 Nesse passo o desempenho do modelo foi analisado mediante uma perspectiva de negócio,e traduzido para valores de negócio.
-### Passo 10. Deploy do Modelo em Produção 
+### Passo 10. Deploy do Modelo em Produção
 Publicação do modelo em um ambiente de produção em nuvem (Render) para que fosse possível o acesso de pessoas ou serviços para consulta dos resultados e com isso melhorar a decisão de negócio da empresa.
 
 ### Passo 11. Telegram Bot
 Criação de um bot no Aplicativo de mensagens do Telegram. Cuja consulta das previsões podem ser feitas de qualquer lugar a qualquer momento apenas utilizando uma conexão com a internet e o aplicativo no smartphone.
 
-# 4. Exploration Data Analysis 
+# 4. Exploration Data Analysis
 ## 4.1 Análise Univariada
 * Variáveis Numéricas: o histograma abaixo mostra como está organizada a distribuição das variáveis numéricas do nosso conjunto de dados. Mostra a contagem de cada variável numérica do dataset.
 
@@ -116,14 +116,14 @@ Criação de um bot no Aplicativo de mensagens do Telegram. Cuja consulta das pr
 ## 4.2 Análise Bivariada
 ### H2. Lojas com competidores mais próximos deveriam vender menos.
 **FALSO** Lojas com competidores MAIS próximos vendem MAIS.
-* No 1º gráfico podemos ver que a maioria dos dados estão concentrados num range de distância de 0 a 25000. 
+* No 1º gráfico podemos ver que a maioria dos dados estão concentrados num range de distância de 0 a 25000.
 * No 2º gráfico foi feito um agrupamento por intervalos de distância, como observado as lojas que tem competidores mais próximos tem mais vendas.
 * O heatmap demonstra uma correlação negativa, isso significa que a variável tem uma relevância média na influência das vendas e quando há influência, é no geral negativa.
- 
+
 ![H2!](img/h2.png)
 
 ### H3. Lojas com competidores à mais tempo deveriam vender mais.
-**FALSO**  Lojas com competidores à MAIS tempo vendem MENOS. 
+**FALSO**  Lojas com competidores à MAIS tempo vendem MENOS.
 * A variável "competition_time_month" foi criada e indica há quanto tempo em meses aquela loja enfreta uma competição. PS: valores negativos significam que o competidor ainda não iniciou as vendas.
 * Podemos ver que as lojas que têm competidores há mais tempo vendem menos, devido ao segundo gráfico, que mostra um comportamento de decaímento de vendas com o aumento do tempo de competição.
 * Através do heatmap vemos uma correlação fraco para o modelo.
@@ -133,7 +133,7 @@ Criação de um bot no Aplicativo de mensagens do Telegram. Cuja consulta das pr
 ### H9. Lojas deveriam vender mais no segundo semestre do ano
 **FALSO**  Lojas vendem MENOS no segundo semestre do ano.
 * Como podemos ver, durante os 6 primeiros meses as lojas vendem mais do que o resto do ano.
-* Correlação muito forte negativamente, essa é considerada uma das variáveis mais importantes para o modelo. 
+* Correlação muito forte negativamente, essa é considerada uma das variáveis mais importantes para o modelo.
 
 ![H9!](img/h9.png)
 
@@ -153,7 +153,7 @@ Criação de um bot no Aplicativo de mensagens do Telegram. Cuja consulta das pr
 
 ![H11!](img/h11.png)
 
-### Tabela de Insights 
+### Tabela de Insights
 
 | Hipóteses | Condição| Relevância |
 | :-------- | :------- | :--------  |
@@ -174,7 +174,7 @@ Criação de um bot no Aplicativo de mensagens do Telegram. Cuja consulta das pr
 ## 4.3 Análise Multivariada
 
 ![multivariate-analysis!](img/correlacao_numerica.png)
- 
+
  ### Correlação entre as variáveis independentes e a variável resposta
  * Variáveis com correlação positiva com sales:
    * **Média:** > *promo*
@@ -184,7 +184,7 @@ Criação de um bot no Aplicativo de mensagens do Telegram. Cuja consulta das pr
   * **Média:** > *day_of_week*
   * **Fraca:** > *promo2, is_promo*
 
-# 5. Seleção do Modelo de Machine Learning 
+# 5. Seleção do Modelo de Machine Learning
 Os seguintes algoritmos de Machine Learning foram aplicados:
 * Mean Average Model (Usado como Baseline);
 * Linear Regression Model;
@@ -229,7 +229,7 @@ Com base no método atual de previsão de vendas é possível analisarmos a dife
 
 |Cenário| Valores|
 |---|---|
-| Predição| R$280.754.389,45| 
+| Predição| R$280.754.389,45|
 
 **Modelo XGBoost sugerido**<br>
 A diferença é com relação o modelo atual de previsão e o modelo treinando nesse projeto.
@@ -241,7 +241,7 @@ A diferença é com relação o modelo atual de previsão e o modelo treinando n
 
 O modelo XGboost teve um bom desempenho para as lojas Rossman, porém tivemos algumas lojas as quais o MAPE ficou muito acima do normal, como podemos ver nas tabelas e gráficos abaixo:
 
-* Nesse gráfico, podemos observar a distribuição dos erros MAPE para todas as lojas da rede Rossman. É importante notar que existem algumas lojas em específico que são mais desafiadoras que outras na previsão das vendas. Porém, é razoável assumir que nosso modelo desempenhou bem de maneira geral visto que a maioria das nossas lojas está concentrada em uma área com um MAPE próximo a 10%. É claro que, o CEO e a equipe de negócio devem analisar esses dados e definir se é "aceitável" esse valor de erro ou não. 
+* Nesse gráfico, podemos observar a distribuição dos erros MAPE para todas as lojas da rede Rossman. É importante notar que existem algumas lojas em específico que são mais desafiadoras que outras na previsão das vendas. Porém, é razoável assumir que nosso modelo desempenhou bem de maneira geral visto que a maioria das nossas lojas está concentrada em uma área com um MAPE próximo a 10%. É claro que, o CEO e a equipe de negócio devem analisar esses dados e definir se é "aceitável" esse valor de erro ou não.
 ![error!](img/store_x_mape.png)
 
 * Alguns outros gráficos foram plotados com objetivo de fornecer um maior entendimento ao time de negócio como o nosso modelo se comporta de maneira geral. O 1º gráfico nos mostra os valores de vendas (linhas azuis) e a predição do modelo (linhas laranjas) das últimas 6 semanas de venda. Como podemos ver, nosso modelo se comporta muito bem, acompanhando de perto as vendas reais.
@@ -255,7 +255,7 @@ O modelo XGboost teve um bom desempenho para as lojas Rossman, porém tivemos al
 
 
 # 8. Modelo em Produção
-O modelo de Machine Learning foi implementado e colocado em produção por meio da plataforma Render (https://render.com), que tem como objetivo possibilitar a criação, execução e operação de aplicativos inteiramente localizados em nuvem. 
+O modelo de Machine Learning foi implementado e colocado em produção por meio da plataforma Render (https://render.com), que tem como objetivo possibilitar a criação, execução e operação de aplicativos inteiramente localizados em nuvem.
 
 ## Esquemático do modelo em produção
 
@@ -263,14 +263,14 @@ O modelo de Machine Learning foi implementado e colocado em produção por meio 
 <img src="img/telegram_modelo.png" />
 </div>
 <br>
-Além do modelo em si presente na nuvem, foi criado um BOT no aplicativo do Telegram que possibilita ao CEO e os time de negócio da empresa realizarem consultas da previsão de vendas das lojas nas próximas 6 semanas de forma simples e direta. Basta apenas utilizar um smartphone e enviar uma mensagem ao bot no Telegram localizado no endereço: http://t.me/projeto_rossmann_bot.
+Além do modelo em si presente na nuvem, foi criado um BOT no aplicativo do Telegram que possibilita ao CEO e os time de negócio da empresa realizarem consultas da previsão de vendas das lojas nas próximas 6 semanas de forma simples e direta. Basta apenas utilizar um smartphone e enviar uma mensagem ao bot no Telegram localizado no endereço: http://t.me/MyRossmannBot.
 
 Forma de Utilização:
 * Criar conta no Telegram em seu smartphone e abrir o link citado acima.
 * Enviar o número de loja que deseja saber a previsão de venda.
 
 <div align="center">
-<img src="img/7jwsrw.gif" />
+<img src="img/myrossmannbot.gif" />
 </div>
 
 # 9. Conclusão
