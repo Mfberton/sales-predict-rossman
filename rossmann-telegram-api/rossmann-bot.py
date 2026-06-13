@@ -5,13 +5,9 @@ import pandas as pd
 
 from flask import Flask, request, Response
 
-from dotenv import load_dotenv
 
 # constants
-load_dotenv()
 TOKEN = os.environ.get('TELEGRAM_TOKEN')
-if not TOKEN:
-    raise RuntimeError("TELEGRAM_TOKEN não definido nas variáveis de ambiente")
 
 
 def send_message( chat_id, text ):
