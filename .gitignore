@@ -104,6 +104,9 @@ celerybeat.pid
 # Environments
 .env
 .venv
+.vscode
+rossmann-telegram-api/.env
+rossmann-telegram-api/.obs.txt
 env/
 venv/
 ENV/
